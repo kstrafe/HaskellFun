@@ -16,9 +16,9 @@ find x y
 fun :: Int -> Int
 fun a = b a + 1
 	where
-		b 0 = 8
-		b 1 = 10
-		b n = 1
+		b n
+			| n > 10 = 10
+			| otherwise = 1
 
 main = do
 	let x = Node "Top!" (Node "left" Empty Empty) (Node "right" Empty Empty)
@@ -34,7 +34,7 @@ main = do
 			result = 100 * z
 	
 
-	print (fun 0)
+	print (fun 100)
 
 	print y
 	print (find x "right")
