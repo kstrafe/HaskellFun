@@ -37,13 +37,20 @@ split [] = []
 sort :: [Int] -> [[Int]]
 sort array = mergeHeavy (sort2 (split array))
 
+pr :: [Int] -> IO()
+pr arr = print arr
+
+rs :: [Int] -> IO()
+rs (x:xs) = pr (x:xs)
+
 main = do
 	let x = [2, 9, 10, 13]
 	let y = [1, 3, 4, 5, 12]
-	let z = [3, 9, 2, 1, 5, 3, 8, 2, 1]
+	let z = [3, 9, 2, 1, 5, 3, 8, 2, 1, 3]
 	print (merge x y)
 	print (sort2 (split z))
-	print (sort z) 
+	print (head (sort z)) 
+	rs z
 
 
 
