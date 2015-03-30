@@ -25,23 +25,50 @@ fib n
 	| n == 0 = 1
 	| otherwise = do 1
 
-searchBinary n array
-	| otherwise = n
+searchBinary' search_for array min max
+	| max < min = -1
+	| array!!middle < search_for = searchBinary' search_for array (middle + 1) max 
+	| array!!middle > search_for = searchBinary' search_for array min (middle - 1)
+	| otherwise = middle
+	where
+	middle = div (max + min) 2
+
+searchBinary search_for array = searchBinary' search_for array 0 ((length array) - 1)
 
 main = do
-	putStrLn "Hello world!"
-	fib 34
-	name <- getLine
-	main
-	let r = 10000
-	print (factorial r)
-	print (computeHeron 2 3 3)
-	print (7 - 2 == 5)
-	que 100
-	print (chr 45)
-	print (ord '-')
-	let nums = [1, 2, 3]
-	print (manip nums)
-	name <- getLine
-	print name
-	main
+	let r = [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 22]
+	print "standby"
+	print (searchBinary (-32) r)
+	print (searchBinary 0 r)
+	print (searchBinary 1 r)
+	print (searchBinary 2 r)
+	print (searchBinary 3 r)
+	print (searchBinary 4 r)
+	print (searchBinary 5 r)
+	print (searchBinary 6 r)
+	print (searchBinary 7 r)
+	print (searchBinary 8 r)
+	print (searchBinary 9 r)
+	print (searchBinary 10 r)
+	print (searchBinary 11 r)
+	print (searchBinary 16 r)
+	print (searchBinary 22 r)
+	print (searchBinary 25 r)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
