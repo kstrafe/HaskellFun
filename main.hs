@@ -56,7 +56,8 @@ sumLes l
 	| otherwise = num l + sumLes (rest l) 
 
 deep :: [[Int]] -> [Int]
-deep ((x:xs):(xss)) = [x] ++ xs ++ head xss
+deep ((x:xs):(xss)) = [x] ++ xs ++ deep xss
+deep [] = []
 
 main = do
 	print (deep [[3,4,1],[5,9]])
