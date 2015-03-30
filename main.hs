@@ -13,6 +13,13 @@ find x y
 	| (bintreedescription x) == y = True
 	| otherwise = find (left_child x) y || find (right_child x) y 
 
+fun :: Int -> Int
+fun a = b a + 1
+	where
+		b 0 = 8
+		b 1 = 10
+		b n = 1
+
 main = do
 	let x = Node "Top!" (Node "left" Empty Empty) (Node "right" Empty Empty)
 	
@@ -26,10 +33,8 @@ main = do
 			max = 3000
 			result = 100 * z
 	
-	fun :: Int -> Int
-	fun a = a + 1
 
-	print (fun 3)
+	print (fun 0)
 
 	print y
 	print (find x "right")
