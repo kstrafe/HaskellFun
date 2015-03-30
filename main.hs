@@ -37,25 +37,25 @@ searchBinary' search_for array min max
 searchBinary :: Int -> [Int] -> Int
 searchBinary search_for array = searchBinary' search_for array 0 ((length array) - 1)
 
+data CupInfo = Cup Int Float String
+	| Imaginar Int Float
+	deriving (Show)
+
 main = do
 	let r = [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 22]
-	print "standby"
-	print (searchBinary (-32) r)
-	print (searchBinary 0 r)
-	print (searchBinary 1 r)
-	print (searchBinary 2 r)
-	print (searchBinary 3 r)
-	print (searchBinary 4 r)
-	print (searchBinary 5 r)
-	print (searchBinary 6 r)
-	print (searchBinary 7 r)
-	print (searchBinary 8 r)
-	print (searchBinary 9 r)
-	print (searchBinary 10 r)
-	print (searchBinary 11 r)
-	print (searchBinary 16 r)
-	print (searchBinary 22 r)
-	print (searchBinary 25 r)
+	let cup = Cup 23 54.4 "A nice cup"
+	let cup2 = Imaginar 23 55.2
+	print cup
+	print cup2
+	print "Hi!"
+
+
+
+
+
+
+
+
 
 
 
