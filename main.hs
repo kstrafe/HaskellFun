@@ -25,6 +25,12 @@ main = do
 			z = 33
 			max = 3000
 			result = 100 * z
+	
+	fun :: Int -> Int
+	fun a = a + 1
+
+	print (fun 3)
+
 	print y
 	print (find x "right")
 
