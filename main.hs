@@ -55,7 +55,11 @@ sumLes l
 	| rest l == End = num l
 	| otherwise = num l + sumLes (rest l) 
 
+deep :: [[Int]] -> [Int]
+deep ((x:xs):(xss)) = [x] ++ xs ++ head xss
+
 main = do
+	print (deep [[3,4,1],[5,9]])
 	let x = createNLes 100
 	print (sumLes x)
 
