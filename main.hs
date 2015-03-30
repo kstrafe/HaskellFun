@@ -2,5 +2,10 @@
 main :: IO()
 main = do
 	print "Hey world"
-	temp <- getLine
-	print temp
+	temporary <- getLine
+	print temporary
+	if temporary == "derp" then
+		print "HEEEEEEEEY AYYYYYY"
+	else
+		print "'no'"
+		
