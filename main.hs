@@ -26,14 +26,14 @@ try correct tries
 		input <- getLine
 
 		checkAnswer correct (read input)
-
+		print tries
 		try correct (tries - 1)
 		print ""
 
 goIterate' :: Int -> IO()
 goIterate' seed = do
 	let number = generateRandomNumber seed
-	try 4 seed
+	try number 4
 	goIterate' number
 
 goIterate :: IO()
