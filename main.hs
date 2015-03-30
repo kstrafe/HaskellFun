@@ -23,7 +23,22 @@ deep [] = []
 splitLines' :: String -> String
 splitLines' (x:xs)
 	| x == '\n' = ""
-	| otherwise = [x] ++ splitLines' xs
+	| length xs > 0 = [x] ++ splitLines' xs
+	| otherwise = ""
+splitLines' [] = ""
+
+cutNewline :: String -> String
+cutNewline (x:xs)
+	| x == '\n' = xs
+	| length xs > 0 = cutNewline xs
+	| otherwise = xs
+cutNewline [] = ""
+
+splitLines :: String -> [String]
+splitLines (x:xs)
+	| length xs > 0 = [splitLines' (x:xs)] ++ splitLines (cutNewline (x:xs))
+	| otherwise = [splitLines' (x:xs)]
+splitLines [] = []
 
 main = do
 	print (splitLines' "Heey\nBae\n")
