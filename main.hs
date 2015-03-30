@@ -15,6 +15,7 @@ find x y
 
 main = do
 	let x = Node "Top!" (Node "left" Empty Empty) (Node "right" Empty Empty)
+	y = 100
 	print (find x "right")
 
 
