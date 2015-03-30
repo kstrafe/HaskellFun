@@ -37,9 +37,21 @@ searchBinary' search_for array min max
 searchBinary :: Int -> [Int] -> Int
 searchBinary search_for array = searchBinary' search_for array 0 ((length array) - 1)
 
+type CardHolder = String
+type CardNumber = String
+type Address = [String]
+type CustomerID = Int
+
+data BillingInfo = CreditCard CardNumber CardHolder Address
+	| CashOnDelivery
+	| Invoice CustomerID
+	deriving (Show)
+
 data CupInfo = Cup Int Float String
 	| Imaginar Int Float
 	deriving (Show)
+
+third (Imaginar d _) = d
 
 main = do
 	let r = [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 22]
@@ -47,10 +59,8 @@ main = do
 	let cup2 = Imaginar 23 55.2
 	print cup
 	print cup2
-	print "Hi!"
-
-
-
+	let c = CreditCard "3213" "4324" ["Derp"]
+	print (third cup2);
 
 
 
