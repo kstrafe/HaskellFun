@@ -47,7 +47,11 @@ data BillingInfo = CreditCard CardNumber CardHolder Address
 	| Invoice CustomerID
 	deriving (Show)
 
-data CupInfo = Cup Int Float String
+data CupInfo = Cup {
+	area :: Int,
+	volume :: Float,
+	description :: String
+	}	
 	| Imaginar Int Float
 	deriving (Show)
 
@@ -66,7 +70,7 @@ main = do
 	print cup2
 	let c = CreditCard "3213" "4324" ["Derp"]
 	print (third cup2);
-
+	print (area cup)
 
 
 
