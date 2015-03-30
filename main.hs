@@ -43,18 +43,21 @@ data Les = Les
 		, rest :: Les
 	}
 	| End
-	deriving (Show)
+	deriving (Show, Eq)
 
 createNLes :: Int -> Les
 createNLes number
 	| number > 0 = Les number (createNLes (number - 1))
 	| otherwise = End
 
-
+sumLes :: Les -> Int
+sumLes l 
+	| rest l == End = num l
+	| otherwise = num l + sumLes (rest l) 
 
 main = do
 	let x = createNLes 100
-	print x
+	print (sumLes x)
 
 	let z = [3, 9, 2, 1, 5, 3, 8, 2, 1, 3, -9]
 	print (head (sort z)) 
