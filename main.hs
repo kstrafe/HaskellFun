@@ -25,7 +25,7 @@ fib n
 	| n == 0 = 1
 	| otherwise = do 1
 
-searchBinary' :: Integer -> [Integer] -> Integer -> Integer -> Integer
+searchBinary' :: Int -> [Int] -> Int -> Int -> Int
 searchBinary' search_for array min max
 	| max < min = -1
 	| array!!middle < search_for = searchBinary' search_for array (middle + 1) max 
@@ -34,6 +34,7 @@ searchBinary' search_for array min max
 	where
 	middle = div (max + min) 2
 
+searchBinary :: Int -> [Int] -> Int
 searchBinary search_for array = searchBinary' search_for array 0 ((length array) - 1)
 
 main = do
