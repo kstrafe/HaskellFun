@@ -53,8 +53,13 @@ data CupInfo = Cup Int Float String
 
 third (Imaginar _ d) = d
 
+sum' :: [Int] -> Int
+sum' (x:xs) = x + sum' xs
+sum' [] = 0
+
 main = do
 	let r = [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 22]
+	print (sum' r)
 	let cup = Cup 23 54.4 "A nice cup"
 	let cup2 = Imaginar 23 55.2
 	print cup
