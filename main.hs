@@ -20,20 +20,16 @@ deep :: [[Int]] -> [Int]
 deep ((x:xs):(xss)) = [x] ++ xs ++ deep xss
 deep [] = []
 
-some :: IO()
-some = do
-	print "eey"
-	input <- readLn
-	putStrLn "input" 
+splitLines' :: String -> String
+splitLines' (x:xs)
+	| x == '\n' = ""
+	| otherwise = [x] ++ splitLines' xs
 
 main = do
-	some
+	print (splitLines' "Heey\nBae\n")
 	print (deep [[3,4,1],[5,9]])
 	let x = createNLes 100
 	print (sumLes x)
-
-	let z = [3, 9, 2, 1, 5, 3, 8, 2, 1, 3, -9]
-	print (head (sort z)) 
 
 
 
