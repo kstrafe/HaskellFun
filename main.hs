@@ -37,7 +37,25 @@ split [] = []
 sort :: [Int] -> [[Int]]
 sort array = mergeHeavy (sort2 (split array))
 
+data Les = Les 
+	{
+		num :: Int
+		, rest :: Les
+	}
+	| End
+	deriving (Show)
+
+createNLes :: Int -> Les
+createNLes number
+	| number > 0 = Les number (createNLes (number - 1))
+	| otherwise = End
+
+
+
 main = do
+	let x = createNLes 100
+	print x
+
 	let z = [3, 9, 2, 1, 5, 3, 8, 2, 1, 3, -9]
 	print (head (sort z)) 
 
