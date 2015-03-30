@@ -20,6 +20,9 @@ fun a = b a + 1
 			| n > 10 = 10
 			| otherwise = 1
 
+favorite :: String
+favorite = "Daaayum son where'd you find this?!"
+
 main = do
 	let x = Node "Top!" (Node "left" Empty Empty) (Node "right" Empty Empty)
 	
@@ -32,9 +35,15 @@ main = do
 			z = 33
 			max = 3000
 			result = 100 * z
-	
+
+	let z = 
+		let z = 100 * 32
+		in z
+
+	print z
 
 	print (fun 100)
+	print favorite
 
 	print y
 	print (find x "right")
