@@ -51,7 +51,7 @@ data CupInfo = Cup Int Float String
 	| Imaginar Int Float
 	deriving (Show)
 
-third (Imaginar d _) = d
+third (Imaginar _ d) = d
 
 main = do
 	let r = [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 22]
