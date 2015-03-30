@@ -15,7 +15,14 @@ find x y
 
 main = do
 	let x = Node "Top!" (Node "left" Empty Empty) (Node "right" Empty Empty)
-	y = 100
+	let y = 
+		if 100 * z > 3000 then
+			Just 10
+		else
+			Nothing 
+		where
+		z = 33
+	print y
 	print (find x "right")
 
 
