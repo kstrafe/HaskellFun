@@ -37,8 +37,16 @@ split [] = []
 sort :: [Int] -> [[Int]]
 sort array = mergeHeavy (sort2 (split array))
 
+voidfun :: IO()
+voidfun = do
+	print "Hey!"
+
 pr :: [Int] -> IO()
-pr arr = print arr
+pr (x:rs) = do
+	let y = x
+	print y
+	voidfun
+	print (x:rs)
 
 rs :: [Int] -> IO()
 rs (x:xs) = pr (x:xs)
