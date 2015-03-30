@@ -16,12 +16,14 @@ find x y
 main = do
 	let x = Node "Top!" (Node "left" Empty Empty) (Node "right" Empty Empty)
 	let y = 
-		if 100 * z > 3000 then
-			Just 10
+		if result > max then
+			Just max
 		else
-			Nothing 
+			result 
 		where
 		z = 33
+		result = 100 * z
+		max = 3000
 	print y
 	print (find x "right")
 
