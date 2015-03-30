@@ -7,7 +7,9 @@ merge (l:lhs) [] = l:lhs
 
 mergeHeavy :: [[Int]] -> [[Int]]
 mergeHeavy (x:xs)
-	| length (tail xs) > 0 = mergeHeavy ([merge x (head xs)] ++ mergeHeavy (tail xs))
+	| length x == 0 = [[]]
+	| length x == 1 = [x]
+	| length xs > 1 = mergeHeavy ([merge x (head xs)] ++ mergeHeavy (tail xs))
 	| otherwise = [merge x (head xs)]
 mergeHeavy [] = []
 
@@ -38,9 +40,8 @@ sort array = mergeHeavy (sort2 (split array))
 main = do
 	let x = [2, 9, 10, 13]
 	let y = [1, 3, 4, 5, 12]
-	let z = [3, 9, 2, 1, 5, 3, 8, 2]
+	let z = [3, 9, 2, 1, 5, 3, 8, 2, 1]
 	print (merge x y)
-	print (split z)
 	print (sort2 (split z))
 	print (sort z) 
 
