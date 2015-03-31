@@ -63,9 +63,20 @@ addOne x = x + 1
 subOne x = x - 1
 square x = x * x
 
+data Wot = 
+	A
+	| B
+	| C
+
+qwerty :: Wot -> Wot -> Bool
+qwerty _ A = False
+qwerty A _ = True
+
 main :: IO()
 main = do
-	print ((map (\x -> x * x) . map (\x -> x + 1)) ([3]))
+	let x = A
+	print (qwerty x x)
+	print ((addOne . square) 3)
 
 
 
