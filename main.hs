@@ -77,12 +77,19 @@ qwerty A _ = True
 addx :: AL -> AL -> AL
 addx x y = x + y
 
-listify :: String -> [Int]
-listify line = do
-	
-	[32] 
-	where
-	s = head line	
+-- Turn a list like "92,43,65" into [Int]
+listify' :: String -> (String, String)
+listify' (x:xs)
+	| x == ',' = ([], xs)
+	| otherwise = 
+		let 
+			result = listify' xs
+			string = fst result
+			rest   = snd result
+		in
+			([x] ++ string, rest)
+listify' [] = ([], [])
+
 main :: IO()
 main = do
 
