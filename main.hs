@@ -5,7 +5,6 @@ generateRandomNumber seed = mod (a * seed + c) m
 		c = 12345
 		m = 2^31
 
--- Turn a list like "92,43,65" into [Int]
 listify' :: String -> (String, String)
 listify' (x:xs)
 	| x == ',' = ([], xs)
@@ -15,11 +14,24 @@ listify' (x:xs)
 			string = fst result
 			rest   = snd result
 		in
-			([x] ++ string, rest)
+			if x /= ' ' then
+				([x] ++ string, rest)
+			else 
+				(string, rest)
 listify' [] = ([], [])
+
+listify :: String -> [Int]
+listify string@(x:xs) =
+	let
+		result = listify' string 
+	in
+		[read (fst result)::Int] ++ listify (snd result)
+listify [] = []
 
 main :: IO()
 main = do
+	line <- getLine
+	print $ listify line
 
 
 
