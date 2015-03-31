@@ -60,11 +60,12 @@ lambda = (\x -> x * x)
 
 addOne :: Num a => a -> a
 addOne x = x + 1
-subOne x = x - 1 
+subOne x = x - 1
+square x = x * x
 
 main :: IO()
 main = do
-	print (((map (\x -> x * x)).(map (\x -> x + 1))) (3:[1]))
+	print ((map (\x -> x * x) . map (\x -> x + 1)) ([3]))
 
 
 
