@@ -67,6 +67,7 @@ instance N Node where
 
 main :: IO()
 main = do
+	print $ Just $ Node "H" End End
 	let node = Node "Hey" (Node "derp" End End) End
 	printTree node
 	line <- getLine
@@ -76,6 +77,7 @@ main = do
 	print cumulative
 	print $ Prelude.foldl (+) 0 listified 
 	print $ sum listified
+	print 'a' >> print 'b'
 
 
 
