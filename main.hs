@@ -49,6 +49,10 @@ accumulate :: [Int] -> [Int]
 accumulate array@(_:_) = accumulate' array 0
 accumulate [] = []
 
+data Maybe a = 
+	Just a
+	| Nothing
+
 main :: IO()
 main = do
 	line <- getLine
