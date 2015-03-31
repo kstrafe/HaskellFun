@@ -18,6 +18,9 @@ mergeSort array@(x:xs)
 		second_half = snd splitted
 mergeSort [] = []
 
+class What a where
+	conquer :: a -> Int
+
 main :: IO()
 main = print (mergeSort [1,3,4,2,-1,2,-3,9,0,1,3,-2])
 
