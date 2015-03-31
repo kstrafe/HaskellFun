@@ -39,15 +39,15 @@ goIterate' seed = do
 goIterate :: IO()
 goIterate = goIterate' 124988
 
-data X = X 
-	{
-		head :: Int
-		, tail :: X
-	} | End
-
 add :: Int -> Int -> Int
 add x y = x + y
 
+tmpl :: [some_template] -> Int -> Int
+tmpl (x:xs) y
+	| length xs == 0 = 0
+	| otherwise = tmpl xs (y + 1) + y 
+
 main :: IO()
 main = do
+	print (tmpl [1, 2, 3, 4] 1)
 	print (1 `add` 2)
