@@ -47,7 +47,7 @@ tmpl (x:xs) y
 	| null xs = 0
 	| otherwise = tmpl xs (y + 1) + y 
 
--- Basic list ops: head, tail, null, length, last, init
+-- Basic list ops: head, tail, tails, null, length, last, init
 -- concat, ++, reverse, and, or, all, any, 
 -- sublists: take, splitAt, takeWhile, dropWhile, span, break, filter
 -- isPrefixOf, isInfixOf, isSuffixOf, zip, zipWith
@@ -58,11 +58,25 @@ tmpl (x:xs) y
 lambda :: Integer -> Integer
 lambda = (\x -> x * x)
 
+addOne :: Num a => a -> a
+addOne x = x + 1
+subOne x = x - 1 
+
 main :: IO()
 main = do
-	print (map (lambda) [1, -3, 2, 3])
-	print (foldr (-) 1 ([1, 3]))
-	print (splitAt 3 "foobar")
-	print (tmpl [1, 2, 3, 4] 1)
-	print (tmpl ['a', 'u', 'd'] 1)
-	print (1 `add` 2)
+	print (((map (\x -> x * x)).(map (\x -> x + 1))) (3:[1]))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
