@@ -12,7 +12,7 @@ mergeSort array@(x:xs)
 	| len == 1 = [x]
 	where
 		y = head xs; len = length array
-		half_length = div (length array) 2
+		half_length = div len 2
 		splitted = splitAt half_length array
 		first_half = fst splitted
 		second_half = snd splitted
