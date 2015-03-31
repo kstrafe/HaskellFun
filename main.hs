@@ -49,12 +49,20 @@ accumulate :: [Int] -> [Int]
 accumulate array@(_:_) = accumulate' array 0
 accumulate [] = []
 
-data Maybe a = 
-	Just a
-	| Nothing
+data Node =
+	Node 
+	{
+		identifier :: String
+		, left_child :: Node
+		, right_child :: Node
+	} 
+	| End
+	deriving (Show)
 
 main :: IO()
 main = do
+	let node = Node "Hey" (Node "derp" End End) End
+	print node
 	line <- getLine
 	let listified = listify line 
 	print listified
