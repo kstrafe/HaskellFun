@@ -44,10 +44,11 @@ add x y = x + y
 
 tmpl :: [some_template] -> Int -> Int
 tmpl (x:xs) y
-	| length xs == 0 = 0
+	| null xs = 0
 	| otherwise = tmpl xs (y + 1) + y 
 
 main :: IO()
 main = do
 	print (tmpl [1, 2, 3, 4] 1)
+	print (tmpl ['a', 'u', 'd'] 1)
 	print (1 `add` 2)
