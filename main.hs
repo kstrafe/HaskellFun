@@ -47,8 +47,18 @@ tmpl (x:xs) y
 	| null xs = 0
 	| otherwise = tmpl xs (y + 1) + y 
 
+-- Basic list ops: head, tail, null, length, last, init
+-- concat, ++, reverse, and, or, all, any, 
+-- sublists: take, splitAt, takeWhile, dropWhile, span, break, filter
+-- isPrefixOf, isInfixOf, isSuffixOf, zip, zipWith
+-- String handling: lines, words, unwords
+-- Data.Char : toUpper, toLower
+-- map, foldl, foldr
+
 main :: IO()
 main = do
+	print (1:3:[])
+	print (splitAt 3 "foobar")
 	print (tmpl [1, 2, 3, 4] 1)
 	print (tmpl ['a', 'u', 'd'] 1)
 	print (1 `add` 2)
