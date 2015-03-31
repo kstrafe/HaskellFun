@@ -67,8 +67,11 @@ instance N Node where
 
 main :: IO()
 main = do
+	print ([1..12] >>= (\x -> [x * 2]))
+	print $ True > False
 	print $ Just $ Node "H" End End
 	let node = Node "Hey" (Node "derp" End End) End
+	let mega = print "DD"
 	printTree node
 	line <- getLine
 	let listified = listify line 
@@ -77,10 +80,8 @@ main = do
 	print cumulative
 	print $ Prelude.foldl (+) 0 listified 
 	print $ sum listified
-	print 'a' >> print 'b'
-	getLine >>= putStrLn
-
-
+	print 'a' >> print 'c' >> print 'b'
+	
 
 
 
