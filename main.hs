@@ -67,6 +67,9 @@ instance N Node where
 
 main :: IO()
 main = do
+	x <- getLine
+	let y = (read x)::Int
+	print (Just 5 >>= (\x -> if (x == 0) then fail "zero" else Just (x + 1)))
 	print ([1..12] >>= (\x -> [x * 2]))
 	print $ True > False
 	print $ Just $ Node "H" End End
