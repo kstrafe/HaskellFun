@@ -5,6 +5,7 @@ generateRandomNumber seed = mod (a * seed + c) m
 		c = 12345
 		m = 2^31
 
+
 listify' :: String -> (String, String)
 listify' (x:xs)
 	| x == ',' = ([], xs)
@@ -28,10 +29,25 @@ listify string@(x:xs) =
 		[read (fst result)::Int] ++ listify (snd result)
 listify [] = []
 
+accumulate' :: [Int] -> Int -> [Int]
+accumulate' (x:xs) sum =
+	let
+		next = sum + x
+	in
+		[next] ++ accumulate' xs next
+accumulate' [] _ = []
+
+accumulate :: [Int] -> [Int]
+accumulate array@(_:_) = accumulate' array 0
+accumulate [] = []
+
 main :: IO()
 main = do
 	line <- getLine
-	print $ listify line
+	let listified = listify line 
+	print listified
+	let cumulative = accumulate listified
+	print cumulative
 
 
 
