@@ -41,13 +41,13 @@ goIterate = goIterate' 124988
 
 data X = X 
 	{
-		q :: Int
+		head :: Int
 		, tail :: X
 	} | End
 
+add :: Int -> Int -> Int
+add x y = x + y
+
 main :: IO()
 main = do
-	print "Hey world, today we're gonna play guess the number.\nThis basically means that you're playing binary search.\nTo spice things up: there are only 4 tries per number.\n"
-	goIterate
-	temporary <- getLine
-	print temporary
+	print (1 `add` 2)
