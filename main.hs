@@ -7,11 +7,11 @@ merge [] array2 = array2
 
 mergeSort :: [Int] -> [Int]
 mergeSort array@(x:xs)
-	| length array > 2 = merge (mergeSort first_half) (mergeSort second_half)
-	| length array == 2 = if x < y then [x, y] else [y, x] 
-	| length array == 1 = [x]
+	| len > 2 = merge (mergeSort first_half) (mergeSort second_half)
+	| len == 2 = if x < y then [x, y] else [y, x] 
+	| len == 1 = [x]
 	where
-		y = head xs
+		y = head xs; len = length array
 		half_length = div (length array) 2
 		splitted = splitAt half_length array
 		first_half = fst splitted
