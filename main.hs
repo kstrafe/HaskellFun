@@ -5,6 +5,14 @@ generateRandomNumber seed = mod (a * seed + c) m
 		c = 12345
 		m = 2^31
 
+generateRandomNumbers :: Int -> Int -> [Int]
+generateRandomNumbers seed amount
+	| amount > 0 =
+		let
+			generated = generateRandomNumber seed
+		in
+			[generated] ++ generateRandomNumbers generated (amount - 1)
+	| otherwise = []
 
 listify' :: String -> (String, String)
 listify' (x:xs)
@@ -48,9 +56,8 @@ main = do
 	print listified
 	let cumulative = accumulate listified
 	print cumulative
-	print $ foldl (+) 0 listified 
+	print $ Prelude.foldl (+) 0 listified 
 	print $ sum listified
-
 
 
 
