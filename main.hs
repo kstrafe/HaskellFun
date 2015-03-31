@@ -57,7 +57,7 @@ tmpl (x:xs) y
 
 main :: IO()
 main = do
-	print (1:3:[])
+	print (foldl (+) 1 ([1, 3]))
 	print (splitAt 3 "foobar")
 	print (tmpl [1, 2, 3, 4] 1)
 	print (tmpl ['a', 'u', 'd'] 1)
