@@ -78,7 +78,7 @@ main = do
 	print $ Prelude.foldl (+) 0 listified 
 	print $ sum listified
 	print 'a' >> print 'b'
-
+	getLine >>= putStrLn
 
 
 
