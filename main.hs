@@ -77,8 +77,20 @@ qwerty A _ = True
 addx :: AL -> AL -> AL
 addx x y = x + y
 
+listify :: String -> [Int]
+listify line = do
+	
+	[32] 
+	where
+	s = head line	
 main :: IO()
 main = do
+
+	if 1 == 1 then do
+		print "Eq..."
+		print "With multiple stats"
+	else do
+		print "Not eq" 
 	i <- getLine
 	let u = (read i)::Int
 	print u
