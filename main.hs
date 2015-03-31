@@ -68,12 +68,21 @@ data Wot =
 	| B
 	| C
 
+type AL = Int
+
 qwerty :: Wot -> Wot -> Bool
 qwerty _ A = False
 qwerty A _ = True
 
+addx :: AL -> AL -> AL
+addx x y = x + y
+
 main :: IO()
 main = do
+	i <- getLine
+	let u = (read i)::Int
+	print u
+	print (addx 1 2)
 	let x = A
 	print (qwerty x x)
 	print (zip (zip [1, 2] [3, 4]) [(4, 5), (6, 7)])
