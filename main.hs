@@ -55,9 +55,13 @@ tmpl (x:xs) y
 -- Data.Char : toUpper, toLower
 -- map, foldl, foldr
 
+lambda :: Integer -> Integer
+lambda = (\x -> x * x)
+
 main :: IO()
 main = do
-	print (foldr (+) 1 ([1, 3]))
+	print (map (lambda) [1, -3, 2, 3])
+	print (foldr (-) 1 ([1, 3]))
 	print (splitAt 3 "foobar")
 	print (tmpl [1, 2, 3, 4] 1)
 	print (tmpl ['a', 'u', 'd'] 1)
