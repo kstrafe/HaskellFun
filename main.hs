@@ -59,10 +59,16 @@ data Node =
 	| End
 	deriving (Show)
 
+class N a where
+	printTree :: a -> IO()
+
+instance N Node where
+	printTree node = print node 
+
 main :: IO()
 main = do
 	let node = Node "Hey" (Node "derp" End End) End
-	print node
+	printTree node
 	line <- getLine
 	let listified = listify line 
 	print listified
