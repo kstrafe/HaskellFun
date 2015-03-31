@@ -86,7 +86,7 @@ main = do
 	let x = A
 	print (qwerty x x)
 	print (zip (zip [1, 2] [3, 4]) [(4, 5), (6, 7)])
-	print ((addOne . square) 3)
+	print $ addOne . square $ 3
 
 
 
