@@ -18,12 +18,21 @@ mergeSort array@(x:xs)
 		second_half = snd splitted
 mergeSort [] = []
 
+data I = I 
+	{
+		num :: Int
+	}
+
 class What a where
 	conquer :: a -> Int
 
-main :: IO()
-main = print (mergeSort [1,3,4,2,-1,2,-3,9,0,1,3,-2])
+instance What I where
+	conquer input = (num input) * 2
 
+main :: IO()
+main = do
+	print (mergeSort [1,3,4,2,-1,2,-3,9,0,1,3,-2])
+	print (conquer (I 32))
 
 
 
