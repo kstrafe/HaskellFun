@@ -48,7 +48,8 @@ main = do
 	print listified
 	let cumulative = accumulate listified
 	print cumulative
-
+	print $ foldl (+) 0 listified 
+	print $ sum listified
 
 
 
