@@ -39,6 +39,12 @@ goIterate' seed = do
 goIterate :: IO()
 goIterate = goIterate' 124988
 
+data X = X 
+	{
+		q :: Int
+		, tail :: X
+	} | End
+
 main :: IO()
 main = do
 	print "Hey world, today we're gonna play guess the number.\nThis basically means that you're playing binary search.\nTo spice things up: there are only 4 tries per number.\n"
