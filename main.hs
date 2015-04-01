@@ -29,10 +29,10 @@ class What a where
 instance What I where
 	conquer input = (num input) * 2
 
-data X = X Int String
+data X a = X Int String
 	deriving (Show, Eq)
 
-gnam :: X -> String
+gnam :: X n -> String
 gnam (X a b) = b
 
 data Kanskje a = Ingenting | Bare a
