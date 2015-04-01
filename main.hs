@@ -35,6 +35,13 @@ data X = X Int String
 gnam :: X -> String
 gnam (X a b) = b
 
+data Kanskje a = Ingenting | Bare a
+
+instance Monad Kanskje where
+	Bare a >>= f = f a
+	Ingenting >>= _ = Ingenting
+	return a = Bare a
+
 main :: IO()
 main = do 
 	print $ gnam (X 0 "de")
