@@ -29,11 +29,11 @@ class What a where
 instance What I where
 	conquer input = (num input) * 2
 
-data X a = X Int String
+data X a = X Int String a
 	deriving (Show, Eq)
 
 gnam :: X n -> String
-gnam (X a b) = b
+gnam (X a b c) = b
 
 data Kanskje a = Ingenting | Bare a
 
@@ -44,7 +44,7 @@ instance Monad Kanskje where
 
 main :: IO()
 main = do 
-	print $ gnam (X 0 "de")
+	print $ gnam (X 0 "de" 32)
 	print (mergeSort [1,3,4,2,-1,2,-3,9,0,1,3,-2])
 	print (conquer (I 32))
 
