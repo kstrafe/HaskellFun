@@ -1,3 +1,5 @@
+import System.Environment (getArgs)
+
 merge :: [Int] -> [Int] -> [Int]
 merge array1@(x:xs) array2@(y:ys)
 	| x < y = [x] ++ merge xs array2
@@ -43,8 +45,16 @@ instance Monad Kanskje where
 	Ingenting >>= _ = Ingenting
 	return a = Bare a
 
+printAll :: [String] -> IO()
+printAll (x:xs) = do
+	print x
+	printAll xs
+printAll [] = print ""
+
 main :: IO()
-main = do 
+main = do
+	a <- System.Environment.getArgs
+	printAll a
 	print (mergeSort [1,3,4,2,-1,2,-3,9,0,1,3,-2])
 	print (conquer (I 32))
 
