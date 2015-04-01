@@ -36,6 +36,7 @@ gnam :: X n -> String
 gnam (X a b c) = b
 
 data Kanskje a = Ingenting | Bare a
+	deriving(Show)
 
 instance Monad Kanskje where
 	Bare a >>= f = f a
@@ -44,7 +45,6 @@ instance Monad Kanskje where
 
 main :: IO()
 main = do 
-	print $ gnam (X 0 "de" 32)
 	print (mergeSort [1,3,4,2,-1,2,-3,9,0,1,3,-2])
 	print (conquer (I 32))
 
