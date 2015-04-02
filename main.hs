@@ -45,6 +45,8 @@ instance Monad Kanskje where
 	Ingenting >>= _ = Ingenting
 	return a = Bare a
 
+fun a = Bare a
+
 printAll :: [String] -> IO()
 printAll (x:xs) = do
 	print x
@@ -53,6 +55,7 @@ printAll [] = print ""
 
 main :: IO()
 main = do
+	print $ (Bare 2) >>= fun
 	a <- System.Environment.getArgs
 	printAll a
 	print (mergeSort [1,3,4,2,-1,2,-3,9,0,1,3,-2])
