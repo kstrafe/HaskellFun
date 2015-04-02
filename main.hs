@@ -54,6 +54,11 @@ printAll (x:xs) = do
 	printAll xs
 printAll [] = print ""
 
+fun2 :: Int -> Int
+fun2 a = 
+	case a of
+		1 -> 2
+
 main :: IO()
 main = do
 	print $ (Bare 2) >>= fun
