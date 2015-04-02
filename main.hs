@@ -61,6 +61,8 @@ fun2 a =
 
 main :: IO()
 main = do
+	z <- readFile "main.hs"
+	print z
 	print $ (Bare 2) >>= fun
 	a <- System.Environment.getArgs
 	printAll a
