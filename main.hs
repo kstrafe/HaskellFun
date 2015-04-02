@@ -45,7 +45,7 @@ instance Monad Kanskje where
 	Ingenting >>= _ = Ingenting
 	return a = Bare a
 
-fun :: (Show a) => (Eq a) => a -> Kanskje a
+fun :: Show a => Eq a => a -> Kanskje a
 fun a = return a
 
 printAll :: [String] -> IO()
