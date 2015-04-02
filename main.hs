@@ -46,7 +46,7 @@ instance Monad Kanskje where
 	return a = Bare a
 
 fun :: a -> Kanskje a
-fun a = Bare a
+fun a = return a
 
 printAll :: [String] -> IO()
 printAll (x:xs) = do
